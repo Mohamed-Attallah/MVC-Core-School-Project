@@ -1,0 +1,21 @@
+﻿@model List<Course>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+<a class="btn btn-success form-conrol" href="/Course/AddNewCourse">Add Course</a>
+<table class="table table-border">
+    @foreach (var item in Model)
+    {
+        <tr>
+        <td>@item.ID</td>
+        <td>@item.Name</td>
+        <td>@item.Degree</td>
+        <td>@item.MinDegree</td>
+        <td>@item.Department.Name</td>
+        <td><a href="/Course/EditCourse/@item.ID" class="btn btn-success">EditCourse</a></td>
+         
+        </tr>
+    }
+</table>

@@ -1,0 +1,36 @@
+﻿@model Course
+@{
+    Layout = "_NewCustomLayout";
+    SelectList slist = new SelectList(ViewBag.deptList,"ID","Name");
+}
+
+@{
+    ViewData["Title"] = "AddNew";
+}
+<center><h1>AddNew Course</h1></center>
+<br />
+<form method="post" action="/Course/SaveEditCourse/@Model.ID" >
+    <label asp-for="Name" class="col-form-label"></label>
+    <input asp-for="Name" class="form-control"/>
+    <br />
+    <span asp-validation-for="Name" class="text-danger"></span>
+    <br />
+    <label asp-for="Degree" class="col-form-label"> </label>
+    <input asp-for="Degree" class="form-control"/>
+    <span asp-validation-for="Degree"class="text-danger"></span>
+    <label asp-for="MinDegree" class="col-form-label"></label>
+
+    <input asp-for="MinDegree" class="form-control"/>
+    <span asp-validation-for="MinDegree"class="text-danger"></span>
+
+    <div class="d-grid gap-2 col-6 mx-auto">
+
+  <select asp-items="slist" asp-for="DepartmentID"></select>
+
+  <span asp-validation-for="DepartmentID" class="text-danger"></span>
+    <input type="submit" value="SubmitChanges" class="btn btn-lg btn-primary"/>
+    </div>
+</form>
+@section scripts
+{
+}

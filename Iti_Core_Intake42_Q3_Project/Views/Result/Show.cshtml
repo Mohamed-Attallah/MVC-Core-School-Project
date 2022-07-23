@@ -1,0 +1,41 @@
+﻿@model ResultViewModel
+@{
+    ViewData["Title"] = "Show";
+}
+
+<h1>Show</h1>
+
+
+
+
+
+<table class=" table table-border">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Course</th>
+        <th>Degree</th>
+        <th>Pass</th>
+    </tr>
+    <tr>
+        <th>@Model.TraineeID</th>
+        <th>@Model.Trainee_Name</th>
+        <th>@Model.Course_Name</th>
+        <th>@Model.Degree</th>
+        @{
+            string color;
+         if (@Model.Pass)
+        {
+            color = "green";
+        }
+        else
+        {
+            color = "red";
+        }
+        }
+        
+        <th style="background-color:@color">@Model.Pass</th>
+        <th><a href="/Result/showAll/1">Show All Degrees</a></th>
+
+    </tr>
+</table>

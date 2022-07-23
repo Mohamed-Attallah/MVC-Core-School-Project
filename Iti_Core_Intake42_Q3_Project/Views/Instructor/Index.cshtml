@@ -1,0 +1,22 @@
+﻿@model List<Instructor>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+<a href="/Instructor/AddNew" class="btn btn-success">AddNew</a>
+<table class="table table-border">
+    @foreach (var item in Model)
+    {
+        <tr>
+        <td>@item.ID</td>
+        <td>@item.Name</td>
+        <td><img src="/images/@item.Image" width="60px" height="50px"></td>
+        <td><a href="\Instructor\Details\@item.ID" class="btn btn-info">Details</a></td>
+        <td><a href="\Instructor\Edit\@item.ID" class="btn btn-info">Edit</a></td>
+        <td><a href="\Instructor\Delete\@item.ID" class="btn btn-danger" >Delete</a></td>
+
+        </tr>
+    }
+</table>
+

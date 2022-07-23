@@ -1,0 +1,43 @@
+﻿@model List<ResultViewModel>
+@{
+    ViewData["Title"] = "ShowAll";
+}
+
+<h1>ShowAll</h1>
+
+
+
+<table class=" table table-border">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Course</th>
+        <th>Degree</th>
+        <th>Pass</th>
+    </tr>
+    @{
+        foreach(var m in @Model)
+        {
+          <tr>
+        <th>@m.TraineeID</th>
+        <th>@m.Trainee_Name</th>
+        <th>@m.Course_Name</th>
+        <th>@m.Degree</th>
+        @{
+            string color;
+         if (@m.Pass)
+        {
+            color = "green";
+        }
+        else
+        {
+            color = "red";
+        }
+        }
+        
+        <th style="background-color:@color">@m.Pass</th>
+
+    </tr>
+        }
+    }
+    </table>

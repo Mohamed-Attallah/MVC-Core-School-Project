@@ -1,0 +1,55 @@
+﻿@model Instructor
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit Employee Data</h1>
+
+<form method="post" action="/Instructor/SaveEdit/@Model.ID">
+    <label>Name: </label>
+    <input type="text"  name="Name" value="@Model.Name" class="form-control"/>
+    <label> Salary</label>
+    <input type="number"  name="Salary" value="@Model.Salary" class="form-control"/>
+    <label>Image</label>
+    <input type="text"  name="Image" value="@Model.Image" class="form-control"/>
+
+
+
+
+
+
+    <br />
+    <label>Address</label>
+    <input type="text" name="Address" value="@Model.Address" class="form-control"/>
+    <label>Department</label>
+  <select name="DepartmentID">
+    @foreach (Department Dept in ViewBag.DeptList)
+    {
+            if (Model.DepartmentID == Dept.ID)
+            {
+                <option value="@(Dept.ID)" selected>@Dept.Name</option>
+            }
+            else
+            {
+                <option value="@(Dept.ID)">@Dept.Name</option>
+                
+            }
+        }
+  </select>
+  <label>Course</label>
+    <select name="CourseID">
+    @foreach (Course Crs in ViewBag.CrsList)
+    {
+            if (Model.CourseID == Crs.ID)
+            {
+                <option value="@(Crs.ID)" selected>@Crs.Name</option>
+            }
+            else
+            {
+                <option value="@(Crs.ID)">@Crs.Name</option>
+                
+            }
+        }
+  </select>
+    <input type="submit" value="Save"/>
+</form>

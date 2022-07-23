@@ -1,0 +1,23 @@
+﻿@model Instructor
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+<partial name="_InstructorInfo"/>
+<a href="/Instructor/ConfirmDelete/@Model.ID" class="btn btn-danger" id="Delete_Btn">Delete</a>
+<a href="/Instructor/Index" class="btn btn-success" id="Back_Btn">BackTOList</a>
+
+<script>
+var c = document.getElementById("Delete_Btn");
+c.onclick=function(event){
+    event.preventDefault();
+    var confirm_var=confirm("Are You Sure");
+    if (confirm_var) {
+        location = "/Instructor/ConfirmDelete/@(Model.ID)";
+    }
+    else
+        alert("Deletion Canceled");
+
+}
+</script>
